@@ -1,0 +1,49 @@
+Para esto, se puede implementar un software que contesta preguntas.
+
+Por ejemplo, ¿Cómo se llama el Presidente de Costa Rica?
+
+Esto puede ser registrado por los programadores del sistema, como: ¿Cómo se llama el Presidente de <pais>Costa Rica</pais>?
+
+En la base de datos, se puede registrar la siguiente información:
+
+cómo: pregunta.
+se: pronombre.
+llama: verbo.
+el: artículo.
+presidente: sustantivo.
+de: preposición.
+costa: sustantivo.
+rica: adjetivo.
+costa rica: país.
+
+Se hace una consulta en la base de datos, que contenga todas las palabras indicadas por el usuario. (Como "presidente costa rica").
+
+El sistema retornará:
+
+presidente: sustantivo.
+costa: sustantivo.
+rica: adjetivo.
+costa rica: país.
+
+Se le podría dar un peso a cada palabra, según como estén registradas en la base de datos.
+
+Como:
+
+0: pregunta.
+0: pronombre.
+0: artículo.
+0: preposición.
+1: adjetivo.
+2: sustantivo.
+3: verbo.
+4: país.
+
+Según el número de palabras buscadas por el usuario, se utilizaría una base distinta. Por ejemplo "presidente costa rica" es conformado por 3 palabras. Así la base sería 4 (que es igual a 3 + 1) y la potencia sería el peso asignado a cada palabra.
+
+Después se haría otra consulta en la base de datos por todas aquellas preguntas que hagan emparejamiento, en al menos una palabra, con los términos buscados por el usuario.
+
+Por ejemplo, "presidente costa rica" tendría una puntuación de 4^2 + 4^2 + 4^1 + 4^4 en la pregunta ¿Cómo se llama el Presidente de Costa Rica?
+
+Los resultados se ordenarían primero por el número de aciertos y después por el cálculo de la suma de pesos (al que se le podría llamar precisión).
+
+Además, el sistema puede manejar sinónimos. Por ejemplo, el nombre "Juan Cayasso" se puede registrar en la base de datos como "Juan Cayasso", "Juan Arnoldo Cayasso" y "Juan Arnoldo Cayasso Reid".
