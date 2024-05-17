@@ -1,0 +1,33 @@
+Tomemos por ejemplo 6*4 + 5*18
+
+Se separa en sus factores primos.
+
+= 3*2*2*2 + 5*3*3*2
+
+Se buscan factores comunes, revisando todas las combinaciones, hasta encontrar uno:
+
+a) 3 y 5.
+b) 3 y 3. (Se encontró un factor común).
+
+= 3*(2*2*2 + 5*3*2)
+
+Se repite el paso anterior pero con 2*2*2 + 5*3*2
+
+a) 2 y 5.
+b) 2 y 3.
+c) 2 y 2. (Se encontró otro factor común).
+
+= 3*2*(2*2 + 5*3)
+
+Se repite el paso anterior pero con 2*2 + 5*3
+
+a) 2 y 5.
+b) 2 y 3.
+c) 2 y 5.
+d) 2 y 3.
+
+Por lo tanto, la operación simplificada es:
+
+3*2*(2*2 + 5*3)
+
+= 6*(4 + 15)

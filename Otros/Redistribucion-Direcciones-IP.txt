@@ -1,0 +1,5 @@
+La distribución de las direcciones IP se podría hacer de la siguiente forma:
+
+1. Se divide el mundo en regiones geográficas. A cada una de ellas se le asignarían direcciones clase A.
+2. Se dividen las regiones geográficas en países. A cada uno de ellos se le asignarían direcciones clase B, correspondientes a las direcciones clase A de la región a la que pertenecen.
+3. Se dividen los países en ciudades. A cada una de ellas se le asignarían direcciones clase C, correspondientes a las direcciones clase B del país al que pertenecen.

@@ -1,0 +1,11 @@
+Mi arquitectura de computadoras es la siguiente. Consiste en que se utiliza una tabla de páginas indexada por los siguientes tres datos:
+
+1. Número de proceso.
+2. Consecutivo de número de segmento (que puede ser 0 para el segmento de código, 1 para el segmento de datos y 2 para el segmento de pila).
+3. Consecutivo de número de página (que puede ser 0, 1, 2, 3, ..., etc...).
+
+Con este índice se accede a un número de página absoluto en la memoria RAM. Esto permite, por ejemplo, que las páginas de un mismo proceso, estén dispersas por toda la memoria RAM y que el algoritmo para compactar la memoria de un proceso, sea muy eficiente y muy natural.
+
+Una mejora consiste en tener 2^n chips y 2^m buses. Así por ejemplo, podrían haber 16 chips y 64 buses. Así si hay 2^64 direcciones de memoria, con 2^6 buses (que es igual a 64), los primeros 6 bits de cada dirección de 64 bits, correspondería a un bus distinto. Así se reduciría el número de colisiones, poniendo a trabajar todos los chips al mismo tiempo (en este caso, los 16 chips).
+
+Además, por ejemplo, podría haber 4 tarjetas de memoria RAM, de tal forma que sobre cada una de ellas, trabajen 16 chips y 64 buses. Así se ampliaría fácilmente la memoria disponible. (Y se podría incrementar el número de tarjetas a gusto, mientras haya espacio para almacenarlas en la computadora). El sistema operativo se encargaría de administrar los recursos que compartirían todas las tarjetas de memoria, como el sistema de archivos, por ejemplo.

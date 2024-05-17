@@ -1,0 +1,13 @@
+Supongamos que el usuario quiere buscar "casa" y escribió "kazá".
+
+Se haría la siguiente consulta SQL:
+
+select count(1) as NumAciertos, a.Palabra
+from Palabras a, CaracteresXPalabra b
+where a.IdPalabra = b.IdPalabra
+and (b.Caracter = "k" or b.Caracter = "c"
+       or b.Caracter = "a"
+       or b.Caracter = "z" or b.Caracter = "s"
+       or b.Caracter = "á" or b.Caracter = "a")
+group by a.Palabra
+order by NumAciertos desc

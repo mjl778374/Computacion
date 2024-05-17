@@ -1,0 +1,6 @@
+Este algoritmo consiste en que se divide la hilera de bits en grupos de N y M bits (con N y M distintos). Todos los grupos de N bits se suman y el resultado se le agrega a la suma obtenida para todos los grupos de M bits. El resultado final se coloca en el campo de suma de verificación. Por ejemplo, si la hilera de bits es 1001001110111, N = 3 bits y M = 5 bits, los grupos que se sumarían por separado serían los siguientes:
+
+a) Para el caso de los grupos de 3 bits: 100, 100, 111, 011 y 1.
+b) Para el caso de los grupos de 5 bits: 10010, 01110 y 111.
+
+La suma de verificación sería la siguiente: (100 + 100 + 111 + 011 + 1) + (10010 + 01110 + 111).

@@ -1,0 +1,62 @@
+Este es un algoritmo para ayudar a escoger una computadora. Consiste en que se evalúa cada una de las partes de esta, según lo que tenga, como por ejemplo:
+
+1. Memoria RAM lenta.
+2. Memoria RAM rápida.
+3. Memoria RAM muy rápida.
+
+... y a cada una le asigna unas palabras de búsqueda, como por ejemplo:
+
+1. mrl (memoria RAM lenta)
+2. mrr (memoria RAM rápida)
+3. mrmr (memoria RAM muy rápida)
+
+Con esa información el usuario empezaba a hacer búsquedas. Por ejemplo podría escribir algo así:
+
+mrr mrmr ddmg
+
+(ddmg significa "disco duro muy grande").
+
+Por último solo hay que ordenar los resultados descendentemente por número de aciertos y así se consegue la computadora que más se acerca a lo que se quiere (aparece en los primeros resultados).
+
+Un DSS como este podría servir para buscar un apartamento o casa cercana a la universidad. Se hace lo mismo, pero se califica con iniciales distintas cada uno de los factores. Por ejemplo:
+
+1. Muy cerca de la UCR (mcucr)
+2. Precio barato (prb).
+3. Apartamento (apto).
+
+etc.
+
+y la gente solo tiene que indicar las iniciales que más le interesan a la hora de hacer las búsquedas.
+
+Una mejora a este DSS, consiste en poner las siglas en campos de texto. (Por ejemplo, podría haber una casa por la que cobren 55 mil mensuales, pero solo haya siglas para "50mil" y "60mil". Lo que se haría sería colocar ambas siglas en el mismo campo de texto). Luego solo hay que separar en palabras las hileras de siglas, colocar cada palabra en una tabla de palabras y relacionar las palabras con las valoraciones de las casas. Después, a la hora de hacer las búsquedas, solo hay que ordenar descendentemente por número de aciertos (como mi algoritmo para hacer búsquedas de palabras exactas).
+
+Podrían haber valoraciones como las siguientes:
+
+1. 40mil 50mil (para una casa entre 40 mil y 50 mil colones mensuales).
+2. 50mil 60mil (para una casa entre 50 mil y 60 mil colones mensuales).
+
+Así, si el usuario busca por "40mil 50mil 60mil" le aparecerían ambos resultados en los primeros lugares.
+
+Si alguien quiere, por ejemplo, una casa en Tibas o Santo Domingo de Heredia, que cueste entre 40 mil y 60 mil colones mensuales, podría hacer una búsqueda como la siguiente:
+
+40mil 50mil 60mil tibas stodomingo
+
+Se podrían dividir los campos de texto por categoría, de tal forma que cada categoría se administre distinto. Por ejemplo:
+
+1. Para el costo mensual podría haber un rango inferior y un rango superior.
+2. Para el cantón podría haber un campo con un solo dato.
+3. Para la región también podría haber un campo con un solo dato.
+
+... y se van agregando categorías. El algoritmo lo que tendría que hacer es construir la consulta SQL, con base en la búsqueda del usuario y la forma en que se manejan los datos de cada categoría.
+
+En el formulario en el que se guardan, se podría especificar:
+
+1. Un campo se texto donde se indique el costo mensual.
+2. Un cantón en otra lista de selección.
+3. Una región en otra lista de selección.
+
+En el formulario en el que se buscan, mientras tanto, se podría especificar:
+
+1. Un rango inferior y un rango superior cualesquiera para el costo mensual, ambos en listas de selección.
+2. Una lista de cantones en un campo de texto, separada por espacios en blanco.
+3. Una lista de regiones, tambień en un campo de texto, separada por espacios en blanco.

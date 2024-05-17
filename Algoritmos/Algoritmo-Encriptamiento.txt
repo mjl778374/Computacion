@@ -1,0 +1,12 @@
+Mi algoritmo de encriptamiento consiste en sumarle cada uno de los códigos ASCII de los caracteres de la palabra por encriptar, a cada uno de los códigos ASCII de un código de encriptamiento definido por el programador. Luego, de cada una de los resultados obtenidos en las sumas, se obtendría el caracter ASCII correspondiente y dicho caracter se anexaría a la palabra encriptada. Por ejemplo, si se va a encriptar la palabra "dinamarca" con el código de encriptación "7xyA", se harían los siguientes cálculos:
+
+chr(ascii('d') + ascii('7')) = caracter 1 en la palabra encriptada
+chr(ascii('i') + ascii('x')) = caracter 2 en la palabra encriptada
+chr(ascii('n') + ascii('y')) = caracter 3 en la palabra encriptada
+chr(ascii('a') + ascii('A')) = caracter 4 en la palabra encriptada
+chr(ascii('m') + ascii('7')) = caracter 5 en la palabra encriptada
+chr(ascii('a') + ascii('x')) = caracter 6 en la palabra encriptada
+chr(ascii('r') + ascii('y')) = caracter 7 en la palabra encriptada
+chr(ascii('c') + ascii('A')) = caracter 8 en la palabra encriptada
+chr(ascii('a') + ascii('7')) = caracter 9 en la palabra encriptada
+

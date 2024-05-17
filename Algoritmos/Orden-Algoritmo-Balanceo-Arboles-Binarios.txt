@@ -1,0 +1,7 @@
+Supongamos que tenemos un árbol de 64 nodos. Para redondear, la raíz tendrá 64 hijos. Lo peor que puede suceder, es que se tenga que mover la mitad de los nodos al otro hijo de la raíz. Después esto hay que hacerlo en cada uno de los dos hijos de la raíz. Redondeando, cada uno tendrá 32 hijos y en cada uno de ellos, lo peor que puede ocurrir es que se tenga que mover la mitad. Esto continuaría hasta llegar a un nivel en que cada nodo solo tenga 2 hijos, en cuyo caso, lo peor que puede ocurrir es que se tenga que mover 1 (la mitad). Cada vez que se descienda un nivel, se duplica el número de nodos que hay que balancear. Así, para 64 nodos, el número de movimientos, en el peor caso, que habría que hacer es:
+
+64/2 + 2*(32/2) + 4*(16/2) + 8*(8/2) + 16*(4/2) + 32*(2/2) = 192
+
+192/64 = 3
+
+Por lo tanto, en este caso esto es igual a 3*64. Por otra parte, log2(64) = 6. Entonces 3*64 = 64*(log2(64)/2) = (64/2)*log2(64). Entonces, el orden de este algoritmo, en el peor caso, es (n/2)*log2(n). Por lo tanto, en el peor caso, este algoritmo es el doble de rápido que el QuickSort.

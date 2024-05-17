@@ -1,0 +1,5 @@
+Esta implementación consiste en hacer i-nodos, de tal forma que cada uno de ellos tendría información como la siguiente:
+
+1. Número de clúster inicial, donde inicia la información del bloque en disco.
+2. Número de clústeres consecutivos, a partir del inicial, donde continúa la información en disco.
+3. Número de siguiente i-nodo. (0 si es el último).

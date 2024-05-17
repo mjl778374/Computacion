@@ -1,0 +1,15 @@
+Mi formato para imágenes es el siguiente:
+
+1. Se tiene un encabezado y un detalle por imagen.
+2. En el detalle se encuentran estructuras de datos como las siguientes:
+    a) Número de fila inicial.
+    b) Número de columna inicial.
+    c) Número de entrada en el arreglo de colores (que se encuentra en el encabezado).
+    d) Número de píxeles que se repite el color hacia la derecha o hacia abajo (la dirección también se especifica en el encabezado).
+3. Las estructuras de datos tienen optimizaciones, debido a que si la imagen es muy ancha o muy larga, se pueden requerir muchos bits para representar el número de fila inicial, el número de columna inicial y el número de píxeles que se repite el color. Las optimizaciones son las siguientes:
+    a) Se divide la imagen en recuadros y a la estructura se le anexa el número de recuadro. Así se requerirían menos bits para indicar el número de fila inicial y el número de columna inicial, pues estos estarían en relación al número de recuadro.
+    b) Las estructuras de datos se agrupan en número de bits necesarios para especificar el número de píxeles que se repite el color, pues en un caso, por ejemplo, se puede requerir solo un bit y en otro caso se pueden requerir hasta 10 bits o más.
+
+Hasta aquí mi explicación del formato de las imágenes. Los videos simplemente se conforman por una secuencia de imágenes, de tal forma que cada imagen mostrada en la pantalla, cambia cada cierta cantidad de milisegundos, para que no lo note el ojo humano.
+
+Una optimización al formato para videos es que el encabezado de una imagen comienza con un bit de "reset". Si ese bit vale 1, se reinician las entradas en el encabezado, como si se tratara de la primera imagen. Si vale 0, se reutilizan las entradas que se emplearon hasta la imagen anterior. Así si por ejemplo, un encabezado tiene 2^10 colores y en una imagen solo se emplearon 100 de ellos, eso significa que todavía queda espacio para representar 2^10 - 100 colores más, por lo cual, se le puede decir al cliente que siga utilizando el arreglo de colores que se le envió hasta la imagen anterior. Cuando se haya utilizado todo el espacio de colores, en el próximo encabezado se reiniciaría con otro arreglo de colores.

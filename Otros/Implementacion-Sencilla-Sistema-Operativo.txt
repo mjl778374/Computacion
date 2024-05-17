@@ -1,0 +1,9 @@
+Una implementación sencilla de un sistema operativo, consiste en dividirlo en tareas, de tal forma que cada tarea sea ejecutada en un hilo en específico. Habrían tareas como las siguientes:
+
+1. Una que lea eventos del usuario del teclado y que por cada uno de ellos, construya un objeto o estructura que se insertaría en una cola.
+2. Habría otra que haga lo mismo que la anterior, pero que lea eventos del mouse.
+3... Se manejarían todos los eventos del usuario, de tal forma que siempre se inserten los datos en la cola.
+
+También habría un hilo que recorrería la cola, de tal forma que para cada evento, invoque al proceso en específico que se encarga de reaccionar a dicho evento.
+
+Habrían otros hilos, para cada una de las tareas que debe realizar el sistema operativo, como por ejemplo, repintar la pantalla.

@@ -1,0 +1,13 @@
+Se haría la siguiente consulta SQL:
+
+select count(1) as NumAciertos, a.Palabra
+from Palabras a, PalabrasSemejantes b, CaracteresXPalabraSemejante c
+where a.IdPalabra = b.IdPalabra
+and b.IdPalabraSemejante = c.IdPalabraSemejante
+and (c.Caracter = "Caracter1"
+     or c.Caracter = "Caracter2"
+     or c.Caracter = "Caracter3"
+     ...
+     or c.Caracter = "CaracterN")
+group by a.Palabra
+order by NumAciertos desc

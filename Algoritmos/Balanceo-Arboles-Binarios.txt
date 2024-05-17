@@ -1,0 +1,22 @@
+
+
+    public void Balancear()
+    {
+        if (LadoIzquierdo == null)
+            LadoIzquierdo = new ArbolBinario();
+
+        if (LadoDerecho == null)
+            LadoDerecho = new ArbolBinario();
+
+        while(LadoIzquierdo.NumNodos - LadoDerecho.NumNodos > 1)
+            LadoIzquierdo.Mover1NodoA(LadoDerecho);
+
+        while(LadoDerecho.NumNodos - LadoIzquierdo.NumNodos > 1)
+            LadoDerecho.Mover1NodoA(LadoIzquierdo);
+
+	if (LadoIzquierdo.NumNodos > 2)
+            LadoIzquierdo.Balancear();
+
+	if (LadoDerecho.NumNodos > 2)
+            LadoDerecho.Balancear();
+    } // public void Balancear()

@@ -1,0 +1,26 @@
+Este es mi algoritmo para interpretar direcciones web en una cadena de texto.
+
+int m_iPosicionOriginal = DemePosicionActual();
+m_sSiguienteToken = DemeSiguienteToken();
+
+while (m_sSiguienteToken.Length > 0)
+{
+    if ((m_iIdsTokensEspera & ID_TOKEN_DIRECCION_WEB) > 0 
+        &&
+       (m_sSiguienteToken.toLower() == "http" || m_sSiguienteToken.toLower() == "https" || m_sSiguienteToken.toLower() == "www"))
+    {
+        String m_sDireccionWeb = m_sSiguienteToken;
+        
+        if (SigueDireccionWeb(ref m_sDireccionWeb))
+        { ... }
+        else
+        {
+            RebobinarAPosicion(m_iPosicionOriginal);
+            m_iIdsTokensEspera -= ID_TOKEN_DIRECCION_WEB;
+        } // else
+    } // if ((m_iIdsTokensEspera & ID_TOKEN_DIRECCION_WEB) > 0 ...
+
+    ...
+    m_iPosicionOriginal = DemePosicionActual();
+    m_sSiguienteToken = DemeSiguienteToken();
+} // while (m_sSiguienteToken.Length > 0)

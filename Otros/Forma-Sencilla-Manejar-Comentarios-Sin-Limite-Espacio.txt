@@ -1,0 +1,11 @@
+Esto consiste en hacer tablas con campos como los siguientes:
+
+Tabla de comentarios:
+
+1. IdComentario.
+
+Tabla de fragmentos de comentario:
+
+1. IdComentario.
+2. ConsecutivoFragmento.
+3. Fragmento - que puede ser, por ejemplo, un varchar(100) -.

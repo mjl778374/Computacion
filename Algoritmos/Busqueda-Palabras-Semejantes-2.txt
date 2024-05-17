@@ -1,0 +1,18 @@
+Supongamos que el usuario quiere buscar "donald" y escribió "xkdronald".
+
+Se haría la siguiente consulta SQL:
+
+select count(1) as NumAciertos, a.Palabra
+from Palabras a, CaracteresXPalabra b
+where a.IdPalabra = b.IdPalabra
+and (b.Caracter = "x"
+     or b.Caracter = "k"
+     or b.Caracter = "d"
+     or b.Caracter = "r"
+     or b.Caracter = "o"
+     or b.Caracter = "n"
+     or b.Caracter = "a"
+     or b.Caracter = "l"
+     or b.Caracter = "d")
+group by a.Palabra
+order by NumAciertos desc

@@ -1,0 +1,15 @@
+Un algoritmo para implementar tablas hash, consiste en que se sumen los caracteres ASCII de la llave del dato y se obtenga el residuo de dividir el resultado entre N. El resultado sería la entrada del arreglo donde se encontraría el dato. El valor N mencionado, correspondería al número de entradas en el arreglo. Luego, para ubicar cada dato en la entrada correspondiente del arreglo, en dicha entrada se encontraría una lista ligada de punteros; cada uno apuntando a un dato distinto. Para que la lista de punteros no crezca mucho, se podría manejar un valor de densidad, que correspondería a dividir el número de datos en la estructura entre N. Cuando se alcance cierto valor de densidad, se crearía otro arreglo con el doble del número de entradas del arreglo original y se volverían a insertar los datos en la nueva estructura.
+
+Una optimización del algoritmo, es debida a que si es muy alto el valor de N, los datos se podrían concentrar en las primeras entradas del arreglo, en vez de estar dispersos por todo este. Una forma de solucionar el problema, es que la suma de los códigos ASCII de cada uno de los caracteres que conforman cada llave, se multiplique por un número alto, que podría ser, por ejemplo, N*log10(N), que significa "N multiplicado por logaritmo en base 10 de N".
+
+Un problema que tiene la optimización de la implementación que había descrito anteriormente, es que si sin la optimización, a dos o más llaves se les calcula la misma entrada en el arreglo, con la optimización también tendrán la misma entrada en el arreglo, aunque en otro lugar de este. Para evitar eso, se pueden calcular unos 4 valores aleatorios, de tal forma que cada código ASCII de cada caracter de la llave se multiplique por uno de esos valores aleatorios, de manera circular y el resultado de cada multiplicación se sume, de tal forma que al resultado final se le calcule el residuo de dividirlo entre N y esa sería la entrada en el arreglo del dato.
+
+Por ejemplo, si los 4 valores aleatorios son 527, 438, 1287 y 345, mientras que la llave es "heredia", la entrada en el arreglo sería la suma de las siguientes multiplicaciones:
+
+a) Se multiplica el código ASCII de "h" por 527.
+b) Se multiplica el código ASCII de "e" por 438.
+c) Se multiplica el código ASCII de "r" por 1287.
+d) Se multiplica el código ASCII de "e" por 345.
+e) Se multiplica el código ASCII de "d" por 527.
+f) Se multiplica el código ASCII de "i" por 438.
+g) Se multiplica el código ASCII de "a" por 1287.

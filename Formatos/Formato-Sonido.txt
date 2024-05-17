@@ -1,0 +1,8 @@
+Mi formato para el sonido es el siguiente:
+
+Se envía un encabezado y un detalle. En el encabezado iría un arreglo de números de frecuencia, de tal forma que en el detalle hay estructuras con información como la siguiente:
+
+    a) Número de entrada en el arreglo de frecuencias.
+    b) Número de milisegundos que se debe reproducir esa frecuencia. (En todo el detalle se debe emplear el mismo número de bits para representar dicha duración. Por ejemplo si se utilizan 3 bits, se pueden hacer grupos de hasta 2^3 milisegundos).
+
+Este formato es secuencial aunque el sonido se escuche simultáneamente. De todos modos, sí sirve este formato, pues las computadoras son secuenciales y aún así en ellas se puede reproducir cualquier audio aunque parezca formado por varias frecuencias de sonido simultáneas.

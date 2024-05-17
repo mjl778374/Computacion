@@ -1,0 +1,19 @@
+Todas las condiciones lógicas que se encuentran en un mismo nivel, se podrían resolver de la siguiente forma:
+
+CCondicionLogica m_AND = null;
+
+do {
+    m_AND = ObtenerCondicionANDArrojeMenosResultados();
+
+    if (m_AND != null)
+        EjecutarAND(m_AND);
+} while (m_AND != null)
+
+CCondicionLogica m_OR = null;
+
+do {
+    m_OR = ObtenerCondicionORArrojeMenosResultados();
+
+    if (m_OR != null)
+        EjecutarOR(m_OR);
+} while (m_OR != null)

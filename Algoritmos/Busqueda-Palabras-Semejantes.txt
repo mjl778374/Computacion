@@ -1,0 +1,35 @@
+public String PalabraSemejanteA(String sPalabra)
+{
+    String m_sPalabraSemejante = sPalabra;
+
+    m_sPalabraSemejante = m_sPalabraSemejante.toLower();
+
+    m_sPalabraSemejante = m_sPalabraSemejante.replace("á", "a");
+    m_sPalabraSemejante = m_sPalabraSemejante.replace("é", "e");
+    m_sPalabraSemejante = m_sPalabraSemejante.replace("í", "i");
+
+    ...
+
+    m_sPalabraSemejante = m_sPalabraSemejante.replace("b", "v");
+    m_sPalabraSemejante = m_sPalabraSemejante.replace("c", "s");
+    m_sPalabraSemejante = m_sPalabraSemejante.replace("h", "");
+    m_sPalabraSemejante = m_sPalabraSemejante.replace("m", "n");
+    m_sPalabraSemejante = m_sPalabraSemejante.replace("ll", "y");
+    m_sPalabraSemejante = m_sPalabraSemejante.replace("z", "s");
+
+    ...
+
+    return m_sPalabraSemejante;
+} // public String PalabraSemejanteA(String sPalabra)
+
+select count(1) as NumAciertos, a.IdArticulo, a.Fecha, a.Titulo
+from Articulos a, PalabrasXArticulo b, Palabras c, PalabrasSemejantes d
+where a.IdArticulo = b.IdArticulo
+and b.IdPalabra = c.IdPalabra
+and c.IdPalabraSemejante = d.IdPalabraSemejante
+and (d.PalabraSemejante like 'PalabraSemejante1%'
+     or d.PalabraSemejante like 'PalabraSemejante2%'
+     or d.PalabraSemejante like 'PalabraSemejante3%'
+    ...)
+group by a.IdArticulo, a.Fecha, a.Titulo
+order by NumAciertos desc, a.Fecha desc

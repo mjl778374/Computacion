@@ -1,0 +1,22 @@
+
+
+
+    public void AnalizarSemanticamente(CEstructura EstructuraXAnalizar)
+    {
+        switch (EstructuraXAnalizar.Tipo)
+        {
+            case TIPO_ESTRUCTURA_FOR:
+                AnalizarSemanticamenteFor(EstructuraXAnalizar);
+                break;
+
+            case TIPO_ESTRUCTURA_WHILE:
+                AnalizarSemanticamenteWhile(EstructuraXAnalizar);
+                break;
+
+            case TIPO_ESTRUCTURA_IF:
+                AnalizarSemanticamenteIf(EstructuraXAnalizar);
+                break;
+
+            ...
+        } // switch (EstructuraXAnalizar.Tipo)
+    } // public void AnalizarSemanticamente(CEstructura EstructuraXAnalizar)

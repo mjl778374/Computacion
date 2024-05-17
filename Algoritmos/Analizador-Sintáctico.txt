@@ -1,0 +1,45 @@
+
+
+    public void AnalizarSintacticamente()
+    {
+        const int ID_TOKEN_SUMA = 2^0;
+        const int ID_TOKEN_RESTA = 2^1;
+        const int ID_TOKEN_MULTIPLICACION = 2^2;
+        const int ID_TOKEN_DIVISION = 2^3;
+        const int ID_TOKEN_NUMERO = 2^4;
+
+        int m_iIdsTokensEspera = ID_TOKEN_SUMA + ID_TOKEN_RESTA + ID_TOKEN_NUMERO;
+        String m_sSiguienteToken = DemeSiguienteToken();
+        Boolean m_bPuedeTerminar = false;
+
+        while(m_sSiguienteToken.length > 0)
+        {
+            m_bPuedeTerminar = false;
+
+            if((m_iIdsTokensEspera & ID_TOKEN_SUMA) > 0 && m_sSiguienteToken == "+")
+                m_iIdsTokensEspera = ID_TOKEN_NUMERO;
+
+            else if((m_iIdsTokensEspera & ID_TOKEN_RESTA) > 0 && m_sSiguienteToken == "-")
+                m_iIdsTokensEspera = ID_TOKEN_NUMERO;
+
+            else if((m_iIdsTokensEspera & ID_TOKEN_MULTIPLICACION) > 0 && m_sSiguienteToken == "*")
+                m_iIdsTokensEspera = ID_TOKEN_NUMERO;
+
+            else if((m_iIdsTokensEspera & ID_TOKEN_DIVISION) > 0 && m_sSiguienteToken == "/")
+                m_iIdsTokensEspera = ID_TOKEN_NUMERO;
+
+            else if((m_iIdsTokensEspera & ID_TOKEN_NUMERO) > 0 && EsNumero(m_sSiguienteToken))
+            {
+                m_iIdsTokensEspera = ID_TOKEN_SUMA + ID_TOKEN_RESTA + ID_TOKEN_MULTIPLICACION + ID_TOKEN_DIVISION;
+                m_bPuedeTerminar = true;
+            } // else if((m_iIdsTokensEspera & ID_TOKEN_NUMERO) > 0 && EsNumero(m_sSiguienteToken))
+
+            else
+                throw new Exception("No se esperaba " + m_sSiguienteToken);
+
+            m_sSiguienteToken = DemeSiguienteToken();
+        } // while(m_sSiguienteToken.length > 0)
+
+        if (!m_bPuedeTerminar)
+            throw new Exception("La expresión está incompleta. No se puede evaluar");
+    } // public void AnalizarSintacticamente()

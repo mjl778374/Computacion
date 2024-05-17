@@ -1,0 +1,14 @@
+public ArrayList QuickSort(ArrayList ArregloXOrdenar)
+{
+    if (ArregloXOrdenar.Count <= 1)
+        return ArregloXOrdenar;
+ 
+    ArrayList m_MitadIzquierda = MitadIzquierda(ArregloXOrdenar);
+    ArrayList m_MitadDerecha = MitadDerecha(ArregloXOrdenar);
+ 
+    m_MitadIzquierda = QuickSort(m_MitadIzquierda);
+    m_MitadDerecha = QuickSort(m_MitadDerecha);
+ 
+    ArrayList m_Resultado = Juntar(m_MitadIzquierda, m_MitadDerecha);
+    return m_Resultado;
+} // public ArrayList QuickSort(ArrayList ArregloXOrdenar)

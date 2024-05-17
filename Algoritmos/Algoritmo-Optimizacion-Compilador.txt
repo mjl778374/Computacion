@@ -1,0 +1,18 @@
+Una forma de implementar un compilador es la siguiente:
+
+1. Si la siguiente instrucción es la primera, se introduce.
+2. En caso contrario, se hace un paso del pipeline pero sin introducir la siguiente instrucción en él.
+    2.1. Antes de introducir la siguiente instrucción:
+        2.1.1. Si ocurre alguno de los siguientes problemas no se hace:
+            2.1.1.1. Que la instrucción que se vaya a introducir sea de salto y dentro del pipeline haya instrucciones pendientes.
+            2.1.1.2. Que dentro del pipeline se encuentre una escritura al mismo registro o dirección de memoria.
+            2.1.1.3. Que la instrucción sea una escritura a un registro o dirección de memoria y dentro del pipeline esté pendiente una lectura hacia allí mismo.
+            2.1.1.4. Que dentro del pipeline se encuentre una instrucción de salto.
+        2.1.2. Si no ocurre ninguno de los problemas descritos en el punto 2.1.1, se introduce la instrucción.
+    2.2. Si no se pudo introducir la instrucción y esta no es un salto, se busca entre las que siguen, alguna que se le pueda adelantar. Para eso, la instrucción que se vaya a adelantar debe reunir los siguientes requisitos:
+        2.2.1. Que al quedar delante de la instrucción, no reúna ninguno de los problemas descritos en el punto 2.1.1.
+        2.2.2. Que la instrucción que se vaya a adelantar no cumpla ninguno de los siguientes problemas:
+            2.2.2.1. Que la instrucción que se vaya a atrasar no sea una lectura o escritura de un registro o dirección de memoria a la que la instrucción que se vaya a adelantar, escriba.
+            2.2.2.2. Que la instrucción que se vaya a adelantar no sea un salto.
+            2.2.2.3. Que la instrucción que se vaya a adelantar no quede delante de otra que reúna el problema descrito en el punto 2.2.2.1.
+    2.3. Si no se pudo adelantar alguna instrucción, entonces se le antecede a la siguiente instrucción una de "no operación" y se introduce esta dentro del pipeline.

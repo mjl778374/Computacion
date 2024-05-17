@@ -1,0 +1,28 @@
+Para un arreglo de 64 elementos, el QuickSort hace lo siguiente:
+
+1. Debe juntar dos arreglos ordenados de 32 elementos cada uno.
+2. Cada uno de los arreglos de 32 elementos, nace como producto de juntar dos arreglos ordenados de 16 elementos cada uno.
+3. Esto continúa hasta que se tengan que juntar arreglos de un elemento cada uno.
+
+Esto se calcula de la siguiente forma:
+
+2*32+4*16+8*8+16*4+32*2+64*1 = 384
+
+384 = 64*log2(64)
+
+La fórmula es la siguiente:
+
+(2^1)*(2^(m-1)) + (2^2)*(2^(m-2)) + (2^3)*(2^(m-3)) + ... + (2^m)*(2^0)
+
+= (2^m)*m
+
+Puesto que
+
+n = 2^m, (n es el número total de elementos en el arreglo por ordenar; en este caso, 64)
+esto significa que log2(n) = m
+
+Entonces:
+
+(2^m)*m = n*log2(n)
+
+y n*log2(n) es el orden del algoritmo QuickSort.
