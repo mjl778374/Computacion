@@ -17,4 +17,4 @@ while(true)
     } // else
 } // while(true)
 
-El sistema operativo revisa la variable booleana "bitCambioContexto", antes de efectuar un cambio de contexto. Si esta vale 1, lo realiza y si no, deja que otro proceso continúe con el control de la CPU.
+El sistema operativo revisa la variable booleana "bitCambioContexto", antes de efectuar un cambio de contexto. Si esta vale 1, lo realiza y si no, deja que el proceso continúe con el control de la CPU.
