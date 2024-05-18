@@ -59,3 +59,25 @@ El sistema puede funcionar así:
 También se pueden registrar varias preguntas con las mismas respuestas. Por ejemplo, ¿Cómo se llama el Presidente de Costa Rica? se puede asociar con ¿Cuál es el nombre del Presidente de Costa Rica? Todas las preguntas pueden tener muchas respuestas asociadas.
 
 El sistema puede registrar todas las preguntas realizadas por los usuarios. De esta forma, no solo se pueden contestar más preguntas en el sistema, sino también se pueden asociar preguntas registradas en este.
+
+El sistema se puede optimizar con una consulta como la siguiente:
+
+select a.NumPalabras - count(1) as Precision, a.IdPais, 'P' as Tipo
+from Paises a, PalabrasXPais b, Palabras c
+where a.IdPais = b.IdPais
+and b.IdPalabra = c.IdPalabra
+and (c.Palabra = 'costa' or c.Palabra = 'rica' or c.Palabra = 'juan' or c.Palabra = 'cayasso')
+group by a.IdPais
+having Precision = 0
+
+union
+
+select a.NumPalabras - count(1) as Precision, a.IdNombre, 'NP' as Tipo
+from NombresPersonales a, PalabrasXNombrePersonal b, Palabras c
+where a.IdNombre = b.IdNombre
+and b.IdPalabra = c.IdPalabra
+and (c.Palabra = 'costa' or c.Palabra = 'rica' or c.Palabra = 'juan' or c.Palabra = 'cayasso')
+group by a.IdNombre
+having Precision = 0
+
+El campo 'NumPalabras' se refiere al número de palabras que conforman el regisro completo en la base de datos. Así, por ejemplo, si el usuario busca 'juan arnoldo cayasso' tendría un acierto en 'juan cayasso' y otro en 'juan arnoldo cayasso'. Con el tipo, (en este caso 'NP'), sabría que el acierto coresponde a un nombre personal. De esta forma, en el caso, por ejemplo, de la pregunta ¿Cómo se llama el Presidente de Costa Rica?, no sería necesario asociarle el sustantivo 'costa' y el adjetivo 'rica', sino solamente el país 'costa rica'.
