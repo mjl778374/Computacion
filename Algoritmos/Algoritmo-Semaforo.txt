@@ -13,9 +13,9 @@ while(true)
     else
     {
         EfectuarCambioContexto(); // Le pasa el control a otro proceso, pues no necesita la CPU.
-        bitCambioContexto = 1; /* Se cambia el bit de cambio de contexto a 1, después de efectuar el cambio, pues si lo hace antes
-            pueda ser que lo termine haciendo dos veces antes de volver a tomar el control de la CPU */
+        bitCambioContexto = 1; /* Se permuta el bit de cambio de contexto a 1, hasta después de aplicado el cambio, pues si se hace la permutación antes,
+            pueda ser que se termine efectuando el cambio dos veces antes de que el hilo vuelva a tomar el control de la CPU */
     } // else
 } // while(true)
 
-El sistema operativo revisa la variable booleana "bitCambioContexto", antes de efectuar un cambio de contexto. Si esta vale 1, lo realiza y si no, deja que el proceso continúe con el control de la CPU.
+El sistema operativo revisa la variable booleana "bitCambioContexto", antes de efectuar un cambio de contexto. Si esta vale 1, lo realiza y si no, deja que el hilo del proceso continúe con el control de la CPU.
