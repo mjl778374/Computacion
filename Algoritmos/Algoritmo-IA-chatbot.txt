@@ -81,3 +81,5 @@ group by a.IdNombre
 having Precision = 0
 
 El campo 'NumPalabras' se refiere al número de palabras que conforman el regisro completo en la base de datos. Así, por ejemplo, si el usuario busca 'juan arnoldo cayasso' tendría un acierto en 'juan cayasso' y otro en 'juan arnoldo cayasso'. Con el tipo, (en este caso 'NP'), sabría que el acierto coresponde a un nombre personal. De esta forma, en el caso, por ejemplo, de la pregunta ¿Cómo se llama el Presidente de Costa Rica?, no sería necesario asociarle el sustantivo 'costa' y el adjetivo 'rica', sino solamente el país 'costa rica'.
+
+El sistema podría preguntarle al usuario, ante cada consulta, si este le contestó adecuadamente. Si dice que no, le podría preguntar que si quiere que le envíen una respuesta a su correo electrónico o a su número de WhatsApp (para lo cual, el usuario tendría que registrar esa información en el sistema). Cuando esté lista la respuesta, le podría llegar un link a la pregunta con su respuesta.
