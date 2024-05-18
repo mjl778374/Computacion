@@ -1,0 +1,20 @@
+Un proceso que funciona con un semáforo se puede implementar de la siguiente forma:
+
+while(true)
+{
+    bitCambioContexto = 0;
+    if (semaforo > 0)
+    {
+        semaforo -= 1;
+        bitCambioContexto = 1;
+        /* Ingresa a la zona crítica */
+        semaforo += 1;
+    } // if (semaforo > 0)
+    else
+    {
+        bitCambioContexto = 1;
+        EfectuarCambioContexto(); // Le pasa el control a otro proceso, pues no necesita la CPU.
+    } // else
+} // while(true)
+
+El sistema operativo revisa la variable booleana "bitCambioContexto", antes de efectuar un cambio de contexto. Si esta vale 1, lo realiza y si no, deja que otro proceso continúe con el control de la CPU.
