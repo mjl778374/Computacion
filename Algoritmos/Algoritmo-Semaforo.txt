@@ -12,8 +12,9 @@ while(true)
     } // if (semaforo > 0)
     else
     {
-        bitCambioContexto = 1;
         EfectuarCambioContexto(); // Le pasa el control a otro proceso, pues no necesita la CPU.
+        bitCambioContexto = 1; /* Se cambia el bit de cambio de contexto a 1, después de efectuar el cambio, pues si lo hace antes
+            pueda ser que lo termine haciendo dos veces antes de volver a tomar el control de la CPU */
     } // else
 } // while(true)
 
