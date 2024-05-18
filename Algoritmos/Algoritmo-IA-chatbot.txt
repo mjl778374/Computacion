@@ -57,3 +57,5 @@ El sistema puede funcionar así:
 5. Se ordenan los resultados, primero por número de aciertos y después por precisión.
 
 También se pueden registrar varias preguntas con las mismas respuestas. Por ejemplo, ¿Cómo se llama el Presidente de Costa Rica? se puede asociar con ¿Cuál es el nombre del Presidente de Costa Rica? Todas las preguntas pueden tener muchas respuestas asociadas.
+
+El sistema puede registrar todas las preguntas realizadas por los usuarios. De esta forma, no solo se pueden contestar más preguntas en el sistema, sino también se pueden asociar preguntas registradas en este.
