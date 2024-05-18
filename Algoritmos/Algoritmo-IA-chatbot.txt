@@ -55,3 +55,5 @@ El sistema puede funcionar así:
 3. Se busca en la base de datos, todas aquellas preguntas que hagan match con al menos una de las palabras buscadas o sus sinónimos. (Para esto, por ejemplo, la pregunta ¿Cómo se llama el presidente de Costa Rica?, debe asociar no solo al país Costa Rica con ella, sino también el sustantivo costa y el adjetivo rica).
 4. Para cada uno de los tipos especiales de palabras encontrados en los resultados, como los países o los nombres personales, se deben cargar todos sus "sinónimos". (Por ejemplo, para Juan Cayasso se carga Juan Arnoldo Cayasso y Juan Arnoldo Cayasso Reid).
 5. Se ordenan los resultados, primero por número de aciertos y después por precisión.
+
+También se pueden registrar varias preguntas con las mismas respuestas. Por ejemplo, ¿Cómo se llama el Presidente de Costa Rica? se puede asociar con ¿Cuál es el nombre del Presidente de Costa Rica? Todas las preguntas pueden tener muchas respuestas asociadas.
